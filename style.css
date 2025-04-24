@@ -1,0 +1,130 @@
+/* /* * { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* osiguraj da ništa ne dodaje razmak */
+/* } */
+
+body {
+  margin: 0;
+}
+.app {
+  display: flex;
+}
+
+.tiles-list {
+  display: flex;
+  border: 1px solid black;
+  height: auto;
+  margin: auto;
+  margin-top: 2vh;
+  gap: 10px;
+  justify-content: center;
+}
+
+.color-option {
+  height: 40px;
+  width: 40px;
+  justify-content: center;
+  cursor: grab;
+  border: 1px solid black;
+}
+
+.color-option img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.rest-tile {
+  background: rgb(230, 181, 173);
+}
+
+.garage {
+  display: grid;
+  /* grid-template-columns: repeat(11, 40px) 20px; /* 10 kolona po 40px + 1 kolona po 20px */
+  /* grid-template-rows: repeat(5, 40px) 15px; 5 redova  */
+  gap: 2px;
+  border: 2px solid #9f9393;
+  background-color: rgb(212, 217, 223);
+  margin: auto;
+  margin: 20px;
+  justify-content: center;
+}
+.garage-tile {
+  background: rgba(243, 243, 243, 0.589);
+  width: 40px;
+  height: 40px;
+}
+.garage-tile img {
+  width: 100%;
+  height: 100%;
+}
+.hidden {
+  display: none;
+}
+.selected {
+  border: 2px solid black;
+  border-radius: 10%;
+}
+/* .box {
+  width: 40px;
+  height: 40px;
+  background-color: beige;
+  border: 1px solid rgba(0, 26, 255, 0.487);
+} */
+
+/*
+
+:root {
+  /* inicijalne vrijednosti, samo da varijable postoje 
+  --garage-tiles-w: 0;
+  --garage-tiles-h: 0;
+}
+
+.tiles-list .rest {
+  width: 5vh;
+  height: 10vh;
+}
+.tiles-list .rest img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hidden {
+  display: none;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(10, 40px); /* 10 kolona po 40px 
+  grid-template-rows: repeat(5, 40px); /* 5 redova po 40px 
+  gap: 2px;
+  width: fit-content;
+  margin: 20px auto;
+  border: 5px solid rgb(207, 0, 0);
+  position: absolute;
+}
+
+.box {
+  width: 40px;
+  height: 40px;
+  background-color: lightgray;
+  border: 1px solid #a3ebaf;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.box.clicked {
+  background-color: steelblue;
+}
+
+.rest {
+  width: 20px;
+  height: 20px;
+  background-color: lightcoral;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+*/
