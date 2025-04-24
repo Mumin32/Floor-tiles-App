@@ -8,8 +8,8 @@ const grid = document.querySelector('.garage');
 const calculate = document.querySelector('#calculate');
 const result = document.querySelector('.result');
 let selectedColor;
-
 result.classList.add('hidden');
+let isProcessing = false;
 
 /////////////////////////////
 //functions /////////////////
@@ -31,7 +31,7 @@ const addRowOrColumn = function (rest, rowOrCol) {
 
 submit.addEventListener('click', function (e) {
   e.preventDefault();
-
+  isProcessing = true;
   colorOptions.forEach((option) => {
     option.addEventListener('click', function (e) {
       e.preventDefault();
@@ -102,11 +102,39 @@ submit.addEventListener('click', function (e) {
   cornerTile.addEventListener('click', () => {
     cornerTile.style.backgroundColor = selectedColor;
   });
+  //////////////////
+  ////////////////
+  //////////////
+  //Calculating and Writing in Html result !
+});
+calculate.addEventListener('click', function () {
+  console.log('ipis');
+  if (isProcessing) {
+    const AllGarageTiles = document.querySelectorAll('.garage-tile');
+    let green = 0;
+    let blue = 0;
+    let red = 0;
+    let grey = 0;
 
-  const garageTiles = document.querySelectorAll('.garage-tile');
-  console.log(garageTiles);
-  garageTiles.forEach((tile) => {
-    let color = getComputedStyle(tile);
-    console.log(color.backgroundColor);
-  });
+    AllGarageTiles.forEach((tile) => {
+      const bg = tile.style.backgroundColor;
+      if (bg === 'green') green++;
+      else if (bg === 'red') red++;
+      else if (bg === 'blue') blue++;
+      else if (bg === 'grey') grey++;
+    });
+
+    if (AllGarageTiles.length > blue + red + green + grey) {
+      alert('Fill every filed with color ! ');
+    } else {
+      isProcessing = false;
+      result.classList.remove('hidden');
+      result.innerHTML = ` <p>Green Tiles: ${green} </p>
+        <p>Blue Tiles: ${blue} </p>
+         <p>Red Tiles: ${red} </p>
+         <p>Grey Tiles: ${grey}  </p>
+         You need ${green + blue + red + grey} Tiles in total
+         `;
+    }
+  }
 });
